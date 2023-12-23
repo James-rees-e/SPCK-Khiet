@@ -3,7 +3,7 @@ const get = document.getElementById("get")
 const fill = document.getElementById("thefill")
 
 
-var imageUrls = ['omg.jpg', 'fish.jpg'];
+var imageUrls = ['./img/omg.jpg', './img/fish.jpg', './img/wohohohoho.jpg', './img/buss.jpg'];
 var randomIndex = Math.floor(Math.random() * imageUrls.length);
 
 document.getElementById("mainContainer").style.backgroundImage = 'url(' + imageUrls[randomIndex];
