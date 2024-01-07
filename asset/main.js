@@ -73,6 +73,8 @@ get.addEventListener("click", function () {
           .then((data) => {
             console.log("trivia", data);
             // hook.innerHTML =
+            document.getElementById("listAnswer").innerHTML = null;
+
             for (i in data) {
               fill.insertAdjacentHTML(
                 "beforeend",
