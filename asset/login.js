@@ -24,6 +24,7 @@ document.getElementById("btnSubmit").addEventListener("click", (evt) => {
         //     return user.email == email.value && user.password == password.value
         // })
         if (checkEmail) {
+            localStorage.setItem("checkLogin", true)
             alert("Đăng nhập thành công!")
             window.location.href = 'index.html'
         }

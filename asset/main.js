@@ -5,7 +5,7 @@ const selectLimit = document.getElementById("selectLimit");
 const selectType = document.getElementById("selectType");
 var imageUrls = ["./img/omg.jpg", "./img/fish.jpg", "./img/wohohohoho.jpg"];
 var randomIndex = Math.floor(Math.random() * imageUrls.length);
-
+const checkLogin = localStorage.getItem("checkLogin") || false;
 document.getElementById("generatorOuter").style.backgroundImage =
   "url(" + imageUrls[randomIndex];
 
@@ -34,58 +34,64 @@ get.addEventListener("click", function () {
       "X-RapidAPI-Host": "trivia-by-api-ninjas.p.rapidapi.com",
     },
   };
-  if (selectLimit.value !== "Amount") {
-    document.getElementById("answerBtn").classList.add("hide");
-    if (selectType.value === "facts") {
-      fetch(
-        `https://facts-by-api-ninjas.p.rapidapi.com/v1/facts?limit=${selectLimit.value}`,
-        facts
-      )
-        .then((res) => res.json())
-        .then((data) => {
-          console.log("fact", data);
-          // hook.innerHTML =
-          for (i in data) {
-            fill.insertAdjacentHTML("beforeend", `<li>${data[i].fact}</li>`);
-          }
-        });
-    } else if (selectType.value === "jokes") {
-      fetch(
-        `https://jokes-by-api-ninjas.p.rapidapi.com/v1/jokes?limit=${selectLimit.value}`,
-        jokes
-      )
-        .then((res) => res.json())
-        .then((data) => {
-          console.log("jokes", data);
-          // hook.innerHTML =
-          for (i in data) {
-            fill.insertAdjacentHTML("beforeend", `<li>${data[i].joke}</li>`);
-          }
-        })
-        .catch((error) => console.error("Error fetching jokes data:", error));
+  if (checkLogin) {
+    if (selectLimit.value !== "Amount") {
+      document.getElementById("answerBtn").classList.add("hide");
+      if (selectType.value === "facts") {
+        fetch(
+          `https://facts-by-api-ninjas.p.rapidapi.com/v1/facts?limit=${selectLimit.value}`,
+          facts
+        )
+          .then((res) => res.json())
+          .then((data) => {
+            console.log("fact", data);
+            // hook.innerHTML =
+            for (i in data) {
+              fill.insertAdjacentHTML("beforeend", `<li>${data[i].fact}</li>`);
+            }
+          });
+      } else if (selectType.value === "jokes") {
+        fetch(
+          `https://jokes-by-api-ninjas.p.rapidapi.com/v1/jokes?limit=${selectLimit.value}`,
+          jokes
+        )
+          .then((res) => res.json())
+          .then((data) => {
+            console.log("jokes", data);
+            // hook.innerHTML =
+            for (i in data) {
+              fill.insertAdjacentHTML("beforeend", `<li>${data[i].joke}</li>`);
+            }
+          })
+          .catch((error) => console.error("Error fetching jokes data:", error));
+      } else {
+        fetch(
+          `https://trivia-by-api-ninjas.p.rapidapi.com/v1/trivia?limit=${selectLimit.value}`,
+          trivia
+        )
+          .then((res) => res.json())
+          .then((data) => {
+            console.log("trivia", data);
+            // hook.innerHTML =
+            for (i in data) {
+              fill.insertAdjacentHTML(
+                "beforeend",
+                `<li>${data[i].question}</li>`
+              );
+              document
+                .getElementById("listAnswer")
+                .insertAdjacentHTML("beforeend", `<li>${data[i].answer}</li>`);
+            }
+            document.getElementById("answerBtn").classList.remove("hide");
+          })
+          .catch((error) =>
+            console.error("Error fetching trivia data:", error)
+          );
+      }
     } else {
-      fetch(
-        `https://trivia-by-api-ninjas.p.rapidapi.com/v1/trivia?limit=${selectLimit.value}`,
-        trivia
-      )
-        .then((res) => res.json())
-        .then((data) => {
-          console.log("trivia", data);
-          // hook.innerHTML =
-          for (i in data) {
-            fill.insertAdjacentHTML(
-              "beforeend",
-              `<li>${data[i].question}</li>`
-            );
-            document
-              .getElementById("listAnswer")
-              .insertAdjacentHTML("beforeend", `<li>${data[i].answer}</li>`);
-          }
-          document.getElementById("answerBtn").classList.remove("hide");
-        })
-        .catch((error) => console.error("Error fetching trivia data:", error));
+      alert("Please select amount");
     }
   } else {
-    alert("Please select amount");
+    alert("You need Login to use this feature");
   }
 });
