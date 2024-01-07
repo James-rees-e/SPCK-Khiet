@@ -25,6 +25,7 @@ body {
     background-repeat: no-repeat;
     background-position: center;
 }
+
 .generator-outer {
     height: 700px;
 }
@@ -35,15 +36,19 @@ body {
     background-color: #ffffff;
     text-align: center;
 }
+
 .about-outer h1 {
     padding: 3rem 0;
 }
+
 .about-instruction {
     padding: 3rem 0;
 }
+
 .about-instruction h5 {
     color: #ccc;
 }
+
 .about-allstep {
     display: flex;
     flex-direction: column;
@@ -51,6 +56,7 @@ body {
     padding-bottom: 3rem;
 
 }
+
 .about-eachstep {
     width: 800px;
     margin-left: 32%;
@@ -60,10 +66,12 @@ body {
     align-items: center;
     gap: 10px;
 }
-.about-eachstep p{
+
+.about-eachstep p {
     margin-bottom: 0;
     font-size: 20px;
 }
+
 .step-number {
     display: flex;
     justify-content: center;
@@ -74,6 +82,7 @@ body {
     color: #fff;
     background-color: #333;
 }
+
 nav {
     background-color: #333;
     overflow: hidden;
@@ -103,6 +112,7 @@ nav a:hover {
     border-radius: 20px;
     opacity: 88%;
 }
+
 .truehead {
     position: fixed;
     width: 100vw;
@@ -110,6 +120,7 @@ nav a:hover {
     top: 0;
     left: 0;
 }
+
 .thebox {
     background-color: #e6e3d1;
     padding: 25px;
@@ -179,7 +190,8 @@ nav a:hover {
     padding: 20px;
 }
 
-.thefill p, .thefill li {
+.thefill p,
+.thefill li {
     word-wrap: break-word;
     font-size: 20px;
 }
@@ -197,52 +209,17 @@ nav a:hover {
     background-color: white;
     border: 0.5px solid lightgray;
     font-weight: bold;
-
 }
+
 .hide {
     display: none !important;
 }
+
 .thesummit button:hover {
     font-weight: bold;
     color: white;
     background-color: #6ec4db;
 }
-
-#signupForm {
-    margin: auto;
-    padding: 25px;
-    background-color: rgb(255, 255, 255);
-    opacity: 88%;
-    display: flex;
-    flex-direction: column;
-    min-height: 330px;
-    width: 330px;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-#signupForm button {
-    margin-top: 20px;
-}
-
-#loginForm {
-    margin: auto;
-    padding: 25px;
-    background-color: rgb(255, 255, 255);
-    opacity: 88%;
-    display: flex;
-    flex-direction: column;
-    width: 330px;
-    height: 330px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-#loginForm button {
-    margin-top: 20px;
-}
-
 
 input {
     padding: 8px;
@@ -256,6 +233,7 @@ button {
     cursor: pointer;
 
 }
+
 .usingBtn {
     background-color: #4caf50;
     color: #fff;
@@ -264,12 +242,15 @@ button {
     border-radius: 10px;
     margin-bottom: 20px;
 }
+
 button:hover {
     background-color: #45a049;
 }
+
 .about-eachstep span {
     font-weight: bold;
 }
+
 .theinfo {
     background-color: rgb(227, 227, 227);
     opacity: 90%;
@@ -289,6 +270,7 @@ button:hover {
     width: 100%;
     text-align: center;
 }
+
 .btn-tite {
     font-style: italic;
     color: #333;
