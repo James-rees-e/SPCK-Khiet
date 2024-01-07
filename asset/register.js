@@ -4,7 +4,10 @@ var password = document.getElementById('password')
 var confirmPassword = document.getElementById('confirmPassword')
 
 var listUsers = JSON.parse(localStorage.getItem("listUsers")) || []
-
+var imageUrls = ["../img/omg.jpg", "../img/fish.jpg", "../img/wohohohoho.jpg"];
+var randomIndex = Math.floor(Math.random() * imageUrls.length);
+document.body.style.backgroundImage = "url(" + imageUrls[randomIndex] + ")";
+document.body.style.backgroundSize = "cover";
 document.getElementById("btnSubmit").addEventListener("click", (evt) => {
     evt.preventDefault()
     let vietThuong = /[a-z]/g;
